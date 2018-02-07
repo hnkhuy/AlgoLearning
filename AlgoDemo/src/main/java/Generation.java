@@ -21,19 +21,21 @@ public class Generation {
     public void binaryArray() {
         String output2 = FileUtils.readTextFile(getClass(), "GenerationInput.txt");
         int number = Integer.parseInt(output2);
+        String fileBuffer = "";
 
         String previousArray = null;
         int quantity = 0;
         do {
-            output2.length();
             previousArray = getNextArray(previousArray, number);
             if (previousArray != null) {
                 quantity++;
-                System.out.println(previousArray);
-
+//                System.out.println(previousArray);
+                fileBuffer += (previousArray + System.lineSeparator());
             }
 
             if ((quantity > 1) && (previousArray == null)) {
+                System.out.println(fileBuffer);
+                FileUtils.writeToTextFile(getClass().getClassLoader(), "GenerationOutput.txt", fileBuffer);
                 System.out.println("Quantity of binary array: " + quantity);
             }
         } while (previousArray != null);

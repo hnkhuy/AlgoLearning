@@ -61,7 +61,8 @@ public class FileUtils {
 
     public static void writeToTextFile(ClassLoader classLoader, String fileName, String content) {
         try {
-            System.out.println("\nout = " + Paths.get(classLoader.getResource(fileName).toURI()).toFile().toPath());
+            //            System.out.println("\nout = " + Paths.get(classLoader.getResource(fileName).toURI()).toFile
+            // ().toPath());
             Files.write(Paths.get(classLoader.getResource(fileName).toURI()).toFile().toPath(), content.getBytes(),
                     StandardOpenOption.CREATE);
         } catch (IOException | URISyntaxException e) {
