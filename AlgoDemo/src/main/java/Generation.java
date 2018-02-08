@@ -1,3 +1,5 @@
+import java.io.InputStream;
+
 /**
  * Created by huy.huynh on 16/01/2018.
  */
@@ -8,9 +10,28 @@ public class Generation {
         //        String output = fileUtils.getFile("GenerationInput.txt");
         //        System.out.print(output);
 
-        System.out.println("getClass().getClassLoader() = " + getClass().getResource("GenerationInput.txt"));
-        System.out.println(
-                "getClass().getClassLoader() = " + getClass().getClassLoader().getResource("GenerationInput.txt"));
+        //        System.out.println("getClass().getClassLoader() = " + getClass().getResource("GenerationInput.txt"));
+        //        System.out.println(
+        //                "getClass().getClassLoader() = " + getClass().getClassLoader().getResource("GenerationInput
+        // .txt"));
+
+//        System.out.println("location: " + getClass().getProtectionDomain().getCodeSource().getLocation().getPath());
+//        System.out.println("dir: " + System.getProperty("user.dir") + "\\" + getClass()
+//                .getSimpleName() + "\\" + "Resource" + "\\Input.txt");
+
+        Object testPath = this.getClass().getResource(getClass().getSimpleName() + "/Input.txt");
+        System.out.println("testPath: " + testPath);
+
+        // File path: src\main\resources\articles\test.md
+//        String fileSeparator = System.getProperty("file.separator ", "/");
+//        String filePath = "Generation" + fileSeparator + "Input.txt";
+//        System.out.println("filePath = " + filePath);
+        
+//        //        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+//        //        InputStream stream = classLoader.getResourceAsStream(filePath);
+//
+//
+//        System.out.println("home: " + System.getProperty("user.home"));
 
         String output2 = FileUtils.readTextFile(getClass(), "GenerationInput.txt");
         output2 += System.getProperty("line.separator") + "5";
@@ -29,7 +50,7 @@ public class Generation {
             previousArray = getNextArray(previousArray, number);
             if (previousArray != null) {
                 quantity++;
-//                System.out.println(previousArray);
+                //                System.out.println(previousArray);
                 fileBuffer += (previousArray + System.lineSeparator());
             }
 

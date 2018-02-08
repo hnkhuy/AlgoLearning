@@ -7,9 +7,13 @@ import java.net.URISyntaxException;
 public class Main {
     public static void main(String[] args) throws IOException, URISyntaxException {
         //        System.out.println("result = ");
-        Generation generation = new Generation();
-        //        generation.testReadAndWriteFile();
-        generation.binaryArray();
-//                System.out.println(generation.buildNextArray("011"));
+//        Generation generation = new Generation();
+//        generation.testReadAndWriteFile();
+        //        generation.binaryArray();
+        //                System.out.println(generation.buildNextArray("011"));
+
+
+        Listed listed = new Listed();
+        listed.listedArray();
     }
 }
