@@ -19,8 +19,9 @@ public class Listed {
         int[] previousArray = null;
         do {
             previousArray = getNextArray(previousArray, k, n);
-            if (previousArray != null && checkDuplicateByAlgorithm(previousArray))
+            if (previousArray != null && checkDuplicateByAlgorithm(previousArray)) {
                 printArray(previousArray);
+            }
 
         } while (previousArray != null);
     }
@@ -62,7 +63,22 @@ public class Listed {
             previousArray[k - 1] = minInPosition[k - 1];
             return previousArray;
         }
+    }
 
+    private int[] buildNextArray2(int[] previousArray, int k, int n) {
+        int[] maxInPosition = getLastArray(k, n);
+        int[] minInPosition = getFirstArray(k);
+
+        for(int i=k-1; i>=0;i--){
+            if(previousArray[i]<maxInPosition[i]){
+                previousArray[i]++;
+                for(int j=i; j<k;j++){
+                    previousArray[j] = minInPosition[j];
+                }
+                return previousArray;
+            }
+        }
+        return previousArray;
     }
 
     private boolean checkDuplicateByAlgorithm(int[] array) {
