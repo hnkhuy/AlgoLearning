@@ -40,9 +40,13 @@ public class FileUtils {
     public static String readTextFile(Class classLoader, String fileName) {
         String content = null;
         try {
-            System.out.println("in = " + Paths.get(classLoader.getResource(fileName).toURI()).toFile().toPath());
-            content = new String(
-                    Files.readAllBytes(Paths.get(classLoader.getResource(fileName).toURI()).toFile().toPath()));
+//            System.out.println(
+            //                    "in = " + Paths.get(classLoader.getResource(classLoader.getSimpleName() + "\\" +
+            // fileName).toURI())
+            //                            .toFile().toPath());
+            content = new String(Files.readAllBytes(
+                    Paths.get(classLoader.getResource(classLoader.getSimpleName() + "\\" + fileName).toURI()).toFile()
+                            .toPath()));
         } catch (IOException | URISyntaxException e) {
             e.printStackTrace();
         }

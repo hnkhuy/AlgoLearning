@@ -5,12 +5,13 @@ import java.util.*;
  */
 public class Listed {
     public void listedArray() {
-        int k = 3;
-        int n = 5;
+        String input = FileUtils.readTextFile(getClass(), "Input.txt");
+        String[] splitter = input.split(System.lineSeparator());
+        int n = Integer.parseInt(splitter[0]);
+        int k = Integer.parseInt(splitter[1]);
 
         printArray(getFirstArray(k));
         printArray(getLastArray(k, n));
-        System.out.println("");
 
         //        printArray(getMinInPosition(k));
         //        printArray(getMaxInPosition(k, n));
@@ -22,6 +23,15 @@ public class Listed {
                 printArray(previousArray);
 
         } while (previousArray != null);
+    }
+
+    public void listedArray2() {
+        String input = FileUtils.readTextFile(getClass(), "Input.txt");
+        System.out.println("input = " + input);
+        String[] splitter = input.split(System.lineSeparator());
+        int n = Integer.parseInt(splitter[0]);
+        int k = Integer.parseInt(splitter[1]);
+        System.out.println(n + "-" + k);
     }
 
     private int[] getNextArray(int[] previousArray, int k, int n) {
