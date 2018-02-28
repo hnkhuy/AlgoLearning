@@ -45,7 +45,7 @@ public class Listed {
         }
     }
 
-    private int[] buildNextArray(int[] previousArray, int k, int n) {
+    private int[] buildNextArray_o(int[] previousArray, int k, int n) {
         int[] maxInPosition = getLastArray(k, n);
         int[] minInPosition = getFirstArray(k);
 
@@ -65,14 +65,14 @@ public class Listed {
         }
     }
 
-    private int[] buildNextArray2(int[] previousArray, int k, int n) {
+    private int[] buildNextArray(int[] previousArray, int k, int n) {
         int[] maxInPosition = getLastArray(k, n);
         int[] minInPosition = getFirstArray(k);
 
         for(int i=k-1; i>=0;i--){
             if(previousArray[i]<maxInPosition[i]){
                 previousArray[i]++;
-                for(int j=i; j<k;j++){
+                for(int j=i+1; j<k;j++){
                     previousArray[j] = minInPosition[j];
                 }
                 return previousArray;
