@@ -1,9 +1,14 @@
+package BaiToanLietKe.PhuongPhapSinh;
+
+import BaiToanLietKe.PhuongPhapSinh.GenerateInterface;
+import Utilities.FileUtils;
+
 import java.util.*;
 
 /**
  * Created by huy.huynh on 08/02/2018.
  */
-public class Listed {
+public class TapConKPhanTu implements GenerateInterface {
     public void listedArray() {
         String input = FileUtils.readTextFile(getClass(), "Input.txt");
         String[] splitter = input.split(System.lineSeparator());
@@ -35,16 +40,6 @@ public class Listed {
         System.out.println(n + "-" + k);
     }
 
-    private int[] getNextArray(int[] previousArray, int k, int n) {
-        if (previousArray == null) {
-            return getFirstArray(k);
-        } else if (Arrays.equals(previousArray, getLastArray(k, n))) {
-            return null;
-        } else {
-            return buildNextArray(previousArray, k, n);
-        }
-    }
-
     private int[] buildNextArray_o(int[] previousArray, int k, int n) {
         int[] maxInPosition = getLastArray(k, n);
         int[] minInPosition = getFirstArray(k);
@@ -65,7 +60,7 @@ public class Listed {
         }
     }
 
-    private int[] buildNextArray(int[] previousArray, int k, int n) {
+    public int[] buildNextArray(int[] previousArray, int k, int n) {
         int[] maxInPosition = getLastArray(k, n);
         int[] minInPosition = getFirstArray(k);
 
@@ -103,7 +98,7 @@ public class Listed {
         return false;
     }
 
-    private int[] getFirstArray(int k) {
+    public int[] getFirstArray(int k) {
         int first[] = new int[k];
         for (int i = 0; i < k; i++) {
             first[i] = i + 1;
@@ -111,7 +106,7 @@ public class Listed {
         return first;
     }
 
-    private int[] getLastArray(int k, int n) {
+    public int[] getLastArray(int k, int n) {
         int last[] = new int[k];
         for (int i = 0; i < k; i++) {
             last[k - i - 1] = n - i;
@@ -135,8 +130,7 @@ public class Listed {
     //        return max;
     //    }
 
-    private void printArray(int[] array) {
-        //        System.out.println(String.format("{%s, %s, %s}", array[0], array[1], array[2]));
+    public void printArray(int[] array) {
         if (array == null)
             return;
         String printBuffer = "{";
