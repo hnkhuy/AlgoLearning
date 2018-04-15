@@ -9,8 +9,8 @@
         <module name="huy.demo" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="huy.demo" target="1.7" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="huy.demo" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
