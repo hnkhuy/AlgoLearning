@@ -4,9 +4,9 @@ import Utilities.FileUtils;
 
 import java.util.Arrays;
 
-public class LietKeHoanVi implements GenerateInterface{
+public class LietKeHoanVi implements GenerateInterface {
 
-    public void permutationArray(){
+    public void permutationArray() {
         String output2 = FileUtils.readTextFile(getClass(), "Input.txt");
         int n = Integer.parseInt(output2);
 
@@ -15,7 +15,7 @@ public class LietKeHoanVi implements GenerateInterface{
 
         int[] previousArray = null;
         do {
-//            previousArray = getNextArray(previousArray, 0, number);
+            previousArray = getNextArray(previousArray, 0, n);
 //            if (previousArray != null /*&& checkDuplicateByAlgorithm(previousArray)*/) {
 //                printArray(previousArray);
 //            }
@@ -25,7 +25,24 @@ public class LietKeHoanVi implements GenerateInterface{
 
     @Override
     public int[] buildNextArray(int[] previousArray, int k, int n) {
-        return new int[0];
+        for (int i = 0; i < n; i++) {
+            if ((previousArray[n - i - 1] > previousArray[n - i - 2])) {
+
+            }
+        }
+        return null;
+    }
+
+    public int[] swap(int[] previousArray, int k) {
+        int sw = previousArray[k];
+        previousArray[k] = previousArray[k - 1];
+        previousArray[k - 1] = sw;
+
+        return previousArray;
+    }
+
+    public int findAppropriateNumber(int[] previousArray, int k) {
+        return 0;
     }
 
     @Override
@@ -45,5 +62,4 @@ public class LietKeHoanVi implements GenerateInterface{
         }
         return last;
     }
-
 }
