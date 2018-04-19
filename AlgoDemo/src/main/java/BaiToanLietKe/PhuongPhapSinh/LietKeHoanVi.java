@@ -10,26 +10,28 @@ public class LietKeHoanVi implements GenerateInterface {
         String output2 = FileUtils.readTextFile(getClass(), "Input.txt");
         int n = Integer.parseInt(output2);
 
-        printArray(getFirstArray(n));
-        printArray(getLastArray(0, n));
+        //        printArray(getFirstArray(n));
+        //        printArray(getLastArray(0, n));
 
         int[] previousArray = null;
         do {
-            previousArray = getNextArray(previousArray, 0, n);
-//            if (previousArray != null /*&& checkDuplicateByAlgorithm(previousArray)*/) {
-//                printArray(previousArray);
-//            }
-//
+            previousArray = getNextArray(previousArray, n, n);
+            printArray(previousArray);
+            //            if (previousArray != null /*&& checkDuplicateByAlgorithm(previousArray)*/) {
+            //                printArray(previousArray);
+            //            }
+            //
         } while (previousArray != null);
     }
 
     @Override
     public int[] buildNextArray(int[] previousArray, int k, int n) {
-        for (int i = 0; i < n; i++) {
-            if ((previousArray[n - i - 1] > previousArray[n - i - 2])) {
-
-            }
+        int i = 0;
+        //        for (int i = 0; i < n; i++) {
+        if ((previousArray[n - i - 2] < previousArray[n - i - 1])) {
+            findAppropriateNumber(previousArray, n - i - 1);
         }
+        //        }
         return null;
     }
 
@@ -42,6 +44,11 @@ public class LietKeHoanVi implements GenerateInterface {
     }
 
     public int findAppropriateNumber(int[] previousArray, int k) {
+        int[] inFrontArray = Arrays.copyOfRange(previousArray, 0, k);
+        int[] behindArray = Arrays.copyOfRange(previousArray, k, previousArray.length);
+        printArray(inFrontArray);
+        printArray(behindArray);
+
         return 0;
     }
 
