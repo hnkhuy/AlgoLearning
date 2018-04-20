@@ -29,27 +29,39 @@ public class LietKeHoanVi implements GenerateInterface {
         int i = 0;
         //        for (int i = 0; i < n; i++) {
         if ((previousArray[n - i - 2] < previousArray[n - i - 1])) {
-            findAppropriateNumber(previousArray, n - i - 1);
+            splitAndSwap(previousArray, n - i - 1);
         }
         //        }
         return null;
     }
 
-    public int[] swap(int[] previousArray, int k) {
-        int sw = previousArray[k];
-        previousArray[k] = previousArray[k - 1];
-        previousArray[k - 1] = sw;
+    public int[] swap(int[] array, int k) {
+        int sw = array[k];
+        array[k] = array[k - 1];
+        array[k - 1] = sw;
 
-        return previousArray;
+        return array;
     }
 
-    public int findAppropriateNumber(int[] previousArray, int k) {
-        int[] inFrontArray = Arrays.copyOfRange(previousArray, 0, k);
-        int[] behindArray = Arrays.copyOfRange(previousArray, k, previousArray.length);
+    public int splitAndSwap(int[] array, int k) {
+        int[] inFrontArray = Arrays.copyOfRange(array, 0, k);
+        int[] behindArray = Arrays.copyOfRange(array, k, array.length);
         printArray(inFrontArray);
         printArray(behindArray);
+        int pos = findAppropriateNumber(behindArray, array[k - 1]);
+//        System.out.println("pos = " + pos);
 
         return 0;
+    }
+
+    private int findAppropriateNumber(int[] array, int k) {
+        int p = 0;
+        for (int i = 0; i < array.length; i++) {
+            if ((array[i] > k) && (array[i] < array[p])) {
+                p = i;
+            }
+        }
+        return p;
     }
 
     @Override
