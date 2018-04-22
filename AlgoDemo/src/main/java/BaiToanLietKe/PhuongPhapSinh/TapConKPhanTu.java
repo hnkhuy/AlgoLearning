@@ -1,9 +1,10 @@
 package BaiToanLietKe.PhuongPhapSinh;
 
-import BaiToanLietKe.PhuongPhapSinh.GenerateInterface;
 import Utilities.FileUtils;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by huy.huynh on 08/02/2018.
@@ -64,10 +65,10 @@ public class TapConKPhanTu implements GenerateInterface {
         int[] maxInPosition = getLastArray(k, n);
         int[] minInPosition = getFirstArray(k);
 
-        for(int i=k-1; i>=0;i--){
-            if(previousArray[i]<maxInPosition[i]){
+        for (int i = k - 1; i >= 0; i--) {
+            if (previousArray[i] < maxInPosition[i]) {
                 previousArray[i]++;
-                for(int j=i+1; j<k;j++){
+                for (int j = i + 1; j < k; j++) {
                     previousArray[j] = minInPosition[j];
                 }
                 return previousArray;

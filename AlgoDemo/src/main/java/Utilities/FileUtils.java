@@ -1,13 +1,10 @@
 package Utilities;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
-import java.util.List;
-import java.util.Scanner;
 
 /**
  * Created by huy.huynh on 16/01/2018.

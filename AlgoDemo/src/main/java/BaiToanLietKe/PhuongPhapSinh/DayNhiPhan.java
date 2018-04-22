@@ -28,7 +28,7 @@ public class DayNhiPhan {
 //        String fileSeparator = System.getProperty("file.separator ", "/");
 //        String filePath = "DayNhiPhan" + fileSeparator + "Input.txt";
 //        System.out.println("filePath = " + filePath);
-        
+
 //        //        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 //        //        InputStream stream = classLoader.getResourceAsStream(filePath);
 //
