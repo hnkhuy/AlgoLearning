@@ -29,29 +29,41 @@ public class LietKeHoanVi implements GenerateInterface {
         int i = 0;
         //        for (int i = 0; i < n; i++) {
         if ((previousArray[n - i - 2] < previousArray[n - i - 1])) {
-            splitAndSwap(previousArray, n - i - 1);
+            return splitAndSwap(previousArray, n - i - 1);
         }
         //        }
         return null;
     }
 
-    public int[] swap(int[] array, int k) {
-        int sw = array[k];
-        array[k] = array[k - 1];
-        array[k - 1] = sw;
+    public int changeAndReturnValue(int[] array, int p, int value) {
+        int returnValue = array[p];
+        array[p] = value;
 
-        return array;
+        return returnValue;
     }
 
-    public int splitAndSwap(int[] array, int k) {
+    public int[] splitAndSwap(int[] array, int k) {
         int[] inFrontArray = Arrays.copyOfRange(array, 0, k);
         int[] behindArray = Arrays.copyOfRange(array, k, array.length);
-        printArray(inFrontArray);
-        printArray(behindArray);
+//        printArray(inFrontArray);
+//        printArray(behindArray);
         int pos = findAppropriateNumber(behindArray, array[k - 1]);
-//        System.out.println("pos = " + pos);
+//        System.out.println("pos = " + pos + "- " + behindArray[pos]);
+        int swapValue = behindArray[pos];
+        behindArray[pos] = inFrontArray[k - 1];
+        inFrontArray[k - 1] = swapValue;
+//        printArray(inFrontArray);
+//        printArray(behindArray);
+        Arrays.sort(behindArray);
 
-        return 0;
+        int[] result = new int[array.length];
+        System.arraycopy(inFrontArray, 0, result, 0, inFrontArray.length);
+        System.arraycopy(behindArray, 0, result, inFrontArray.length, behindArray.length);
+
+        printArray(array);
+        printArray(result);
+
+        return result;
     }
 
     private int findAppropriateNumber(int[] array, int k) {
