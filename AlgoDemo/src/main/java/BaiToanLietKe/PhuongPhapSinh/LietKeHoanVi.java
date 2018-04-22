@@ -25,31 +25,28 @@ public class LietKeHoanVi implements GenerateInterface {
     public int[] buildNextArray(int[] previousArray, int k, int n) {
         for (int i = 0; i < n; i++) {
             if ((previousArray[n - i - 2] < previousArray[n - i - 1])) {
-                return splitAndSwap(previousArray, n - i - 1);
+                int splitPosition = n - i - 1;
+
+                int[] inFrontArray = Arrays.copyOfRange(previousArray, 0, splitPosition);
+                int[] behindArray = Arrays.copyOfRange(previousArray, splitPosition, previousArray.length);
+
+                int pos = findAppropriatePosition(behindArray, previousArray[splitPosition - 1]);
+                int swapValue = behindArray[pos];
+                behindArray[pos] = inFrontArray[splitPosition - 1];
+                inFrontArray[splitPosition - 1] = swapValue;
+                Arrays.sort(behindArray);
+
+                int[] nextArray = new int[previousArray.length];
+                System.arraycopy(inFrontArray, 0, nextArray, 0, inFrontArray.length);
+                System.arraycopy(behindArray, 0, nextArray, inFrontArray.length, behindArray.length);
+
+                return nextArray;
             }
         }
         return null;
     }
 
-
-    public int[] splitAndSwap(int[] array, int k) {
-        int[] inFrontArray = Arrays.copyOfRange(array, 0, k);
-        int[] behindArray = Arrays.copyOfRange(array, k, array.length);
-
-        int pos = findAppropriateNumber(behindArray, array[k - 1]);
-        int swapValue = behindArray[pos];
-        behindArray[pos] = inFrontArray[k - 1];
-        inFrontArray[k - 1] = swapValue;
-        Arrays.sort(behindArray);
-
-        int[] result = new int[array.length];
-        System.arraycopy(inFrontArray, 0, result, 0, inFrontArray.length);
-        System.arraycopy(behindArray, 0, result, inFrontArray.length, behindArray.length);
-
-        return result;
-    }
-
-    private int findAppropriateNumber(int[] array, int k) {
+    private int findAppropriatePosition(int[] array, int k) {
         int p = 0;
         for (int i = 0; i < array.length; i++) {
             if ((array[i] > k) && (array[i] < array[p])) {
