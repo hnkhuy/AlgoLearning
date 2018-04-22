@@ -31,33 +31,20 @@ public class LietKeHoanVi implements GenerateInterface {
         return null;
     }
 
-    public int changeAndReturnValue(int[] array, int p, int value) {
-        int returnValue = array[p];
-        array[p] = value;
-
-        return returnValue;
-    }
 
     public int[] splitAndSwap(int[] array, int k) {
         int[] inFrontArray = Arrays.copyOfRange(array, 0, k);
         int[] behindArray = Arrays.copyOfRange(array, k, array.length);
-//        printArray(inFrontArray);
-//        printArray(behindArray);
+
         int pos = findAppropriateNumber(behindArray, array[k - 1]);
-//        System.out.println("pos = " + pos + "- " + behindArray[pos]);
         int swapValue = behindArray[pos];
         behindArray[pos] = inFrontArray[k - 1];
         inFrontArray[k - 1] = swapValue;
-//        printArray(inFrontArray);
-//        printArray(behindArray);
         Arrays.sort(behindArray);
 
         int[] result = new int[array.length];
         System.arraycopy(inFrontArray, 0, result, 0, inFrontArray.length);
         System.arraycopy(behindArray, 0, result, inFrontArray.length, behindArray.length);
-
-//        printArray(array);
-//        printArray(result);
 
         return result;
     }

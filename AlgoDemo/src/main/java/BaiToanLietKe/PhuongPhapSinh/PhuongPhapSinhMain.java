@@ -17,7 +17,5 @@ public class PhuongPhapSinhMain {
 
         LietKeHoanVi lietKeHoanVi = new LietKeHoanVi();
         lietKeHoanVi.permutationArray();
-//        int[] data = {1, 3, 6, 5, 4, 2};
-//        lietKeHoanVi.splitAndSwap(data, 2);
     }
 }
