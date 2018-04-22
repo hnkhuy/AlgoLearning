@@ -23,9 +23,9 @@ public class FileUtils {
         return content;
     }
 
-    public static void writeToTextFile(ClassLoader classLoader, String fileName, String content) {
+    public static void writeToTextFile(Class classLoader, String fileName, String content) {
         try {
-            Files.write(Paths.get(classLoader.getResource(fileName).toURI()).toFile().toPath(), content.getBytes(),
+            Files.write(Paths.get(classLoader.getResource(classLoader.getSimpleName() + "\\" + fileName).toURI()).toFile().toPath(), content.getBytes(),
                     StandardOpenOption.CREATE);
         } catch (IOException | URISyntaxException e) {
             e.printStackTrace();

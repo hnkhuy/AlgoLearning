@@ -38,7 +38,7 @@ public class DayNhiPhan {
         String output2 = FileUtils.readTextFile(getClass(), "BaiToanLietKe/PhuongPhapSinh/DayNhiPhan/Input.txt");
         output2 += System.getProperty("line.separator") + "5";
         System.out.print(output2);
-        FileUtils.writeToTextFile(getClass().getClassLoader(), "GenerationOutput.txt", output2);
+        FileUtils.writeToTextFile(getClass(), "GenerationOutput.txt", output2);
     }
 
     public void binaryArray() {
@@ -58,7 +58,7 @@ public class DayNhiPhan {
 
             if ((quantity > 1) && (previousArray == null)) {
                 System.out.println(fileBuffer);
-                FileUtils.writeToTextFile(getClass().getClassLoader(), "GenerationOutput.txt", fileBuffer);
+                FileUtils.writeToTextFile(getClass(), "GenerationOutput.txt", fileBuffer);
                 System.out.println("Quantity of binary array: " + quantity);
             }
         } while (previousArray != null);
