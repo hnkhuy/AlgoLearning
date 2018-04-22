@@ -15,7 +15,7 @@ public class PhuongPhapSinhMain {
 //        TapConKPhanTu listed = new TapConKPhanTu();
 //        listed.listedArray();
 
-        LietKeHoanVi lietKeHoanVi = new LietKeHoanVi();
-        lietKeHoanVi.permutationArray();
+//        LietKeHoanVi lietKeHoanVi = new LietKeHoanVi();
+//        lietKeHoanVi.permutationArray();
     }
 }

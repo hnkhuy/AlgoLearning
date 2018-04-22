@@ -131,17 +131,4 @@ public class TapConKPhanTu implements GenerateInterface {
     //        return max;
     //    }
 
-    public void printArray(int[] array) {
-        if (array == null)
-            return;
-        String printBuffer = "{";
-        for (int i = 0; i <= array.length; i++) {
-            if (i != array.length) {
-                printBuffer += array[i] + ", ";
-            } else {
-                printBuffer += "}";
-            }
-        }
-        System.out.println(printBuffer.replace(", }", "}"));
-    }
 }
