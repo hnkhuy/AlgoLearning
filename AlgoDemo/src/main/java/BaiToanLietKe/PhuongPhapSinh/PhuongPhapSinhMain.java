@@ -18,7 +18,10 @@ public class PhuongPhapSinhMain {
 //        LietKeHoanVi lietKeHoanVi = new LietKeHoanVi();
 //        lietKeHoanVi.permutationArray();
 
-        Exercise03 exercise03 = new Exercise03();
-        exercise03.exercise03Array();
+//        Exercise03 exercise03 = new Exercise03();
+//        exercise03.exercise03Array();
+
+        Exercise04 exercise04 = new Exercise04();
+        exercise04.executeAlgorithm();
     }
 }
