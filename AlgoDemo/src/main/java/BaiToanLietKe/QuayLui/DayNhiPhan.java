@@ -7,13 +7,14 @@ import Utilities.FileUtils;
  */
 public class DayNhiPhan {
     int number;
+    char data[] = {'0','1'};
 
     public void binaryArray() {
         String output2 = FileUtils.readTextFile(getClass(), "Input.txt");
         number = Integer.parseInt(output2);
         String fileBuffer = "";
 
-        getArray(new StringBuilder());
+        getArray("");
 
         //        String previousArray = null;
         //        int quantity = 0;
@@ -33,28 +34,18 @@ public class DayNhiPhan {
         //        } while (previousArray != null);
     }
 
-    public StringBuilder getArray(StringBuilder a) {
-        System.out.println(a);
-        if (a.length() == 0) {
-            a.append("0");
-            getArray(a);
-        }
-        if (a.charAt(a.length() - 1) == '0') {
+    public void getArray(String a) {
+        for (int i = 0; i < data.length; i++) {
             if (a.length() < number) {
-                a.setCharAt(a.length() - 1, '1');
+                a=a+data[i];
                 getArray(a);
-            } else {
-//                System.out.println(a);
+            }else if(a.length() == number){
+                a=a.substring(0,2)+data[i];
             }
-        } else {
-            if (a.length() < number) {
-                a.append("0");
-                getArray(a);
-            } else {
-//                System.out.println(a);
+            if(a.length() == number){
+                System.out.println(a);
             }
         }
-        return a;
     }
 
     ;
