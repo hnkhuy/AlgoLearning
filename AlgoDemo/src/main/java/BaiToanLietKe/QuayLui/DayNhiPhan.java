@@ -7,47 +7,55 @@ import Utilities.FileUtils;
  */
 public class DayNhiPhan {
     int number;
-    char data[] = {'0','1'};
+    char data[] = {'0', '1'};
+    boolean isFirst = true;
 
     public void binaryArray() {
         String output2 = FileUtils.readTextFile(getClass(), "Input.txt");
         number = Integer.parseInt(output2);
         String fileBuffer = "";
 
+//        String demo="asdfg";
+//        System.out.println("fileBuffer = " + demo.charAt(demo.length()-1));
         getArray("");
 
-        //        String previousArray = null;
-        //        int quantity = 0;
-        //        do {
-        //            previousArray = getNextArray(previousArray, number);
-        //            if (previousArray != null) {
-        //                quantity++;
-        //                //                System.out.println(previousArray);
-        //                fileBuffer += (previousArray + System.lineSeparator());
-        //            }
-        //
-        //            if ((quantity > 1) && (previousArray == null)) {
-        //                System.out.println(fileBuffer);
-        //                FileUtils.writeToTextFile(getClass(), "GenerationOutput.txt", fileBuffer);
-        //                System.out.println("Quantity of binary array: " + quantity);
-        //            }
-        //        } while (previousArray != null);
     }
 
-    public void getArray(String a) {
+    public void getArray(String currentValue) {
         for (int i = 0; i < data.length; i++) {
-            if (a.length() < number) {
-                a=a+data[i];
-                getArray(a);
-            }else if(a.length() == number){
-                a=a.substring(0,2)+data[i];
-            }
-            if(a.length() == number){
-                System.out.println(a);
+            if (currentValue.length() < number) {
+                if (compareLastChar(currentValue, data[i])) {
+                    currentValue = currentValue + data[i];
+                } else {
+                    currentValue = currentValue.substring(0, currentValue.length() - 1) + data[i];
+                }
+                if (currentValue.length() == number) {
+                    System.out.println("r: " + currentValue);
+                } else {
+                    getArray(currentValue);
+                }
+            } else if (currentValue.length() == number) {
+                currentValue = currentValue.substring(0, currentValue.length() - 1) + data[i];
+                System.out.println("r: " + currentValue);
             }
         }
     }
 
-    ;
+    private boolean compareLastChar(String s, char c) {
+        if (s.equals("")) return true;
+        int indexOfLast=0;
+        int indexOfChar=0;
+        for (int i = 0; i < data.length; i++) {
+            if(data[i]==s.charAt(s.length() - 1)){
+                indexOfLast=i;
+            }
+            if (data[i]==c){
+                indexOfChar=i;
+            }
+        }
 
+        if (indexOfLast >= indexOfChar) {
+            return true;
+        } else return false;
+    }
 }
