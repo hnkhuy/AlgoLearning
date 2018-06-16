@@ -8,17 +8,17 @@ import Utilities.FileUtils;
 public class DayNhiPhan {
     int number;
     char data[] = {'0', '1'};
-    boolean isFirst = true;
+    String fileBuffer = "";
 
     public void binaryArray() {
         String output2 = FileUtils.readTextFile(getClass(), "Input.txt");
         number = Integer.parseInt(output2);
-        String fileBuffer = "";
 
-//        String demo="asdfg";
-//        System.out.println("fileBuffer = " + demo.charAt(demo.length()-1));
         getArray("");
 
+        System.out.println(fileBuffer);
+        FileUtils.writeToTextFile(getClass(), "Output.txt", fileBuffer);
+        System.out.println("Quantity of binary array: " + fileBuffer.split(System.lineSeparator()).length);
     }
 
     public void getArray(String currentValue) {
@@ -30,13 +30,15 @@ public class DayNhiPhan {
                     currentValue = currentValue.substring(0, currentValue.length() - 1) + data[i];
                 }
                 if (currentValue.length() == number) {
-                    System.out.println("r: " + currentValue);
+//                    System.out.println("r: " + currentValue);
+                    fileBuffer+=(currentValue + System.lineSeparator());
                 } else {
                     getArray(currentValue);
                 }
             } else if (currentValue.length() == number) {
                 currentValue = currentValue.substring(0, currentValue.length() - 1) + data[i];
-                System.out.println("r: " + currentValue);
+//                System.out.println("r: " + currentValue);
+                fileBuffer+=(currentValue + System.lineSeparator());
             }
         }
     }
