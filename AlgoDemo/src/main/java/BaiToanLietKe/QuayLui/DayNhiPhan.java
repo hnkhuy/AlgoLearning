@@ -17,19 +17,19 @@ public class DayNhiPhan {
 //        getArray("");
         getArray2("");
 
-//        System.out.println(fileBuffer);
-//        FileUtils.writeToTextFile(getClass(), "Output.txt", fileBuffer);
-//        System.out.println("Quantity of binary array: " + fileBuffer.split(System.lineSeparator()).length);
+        System.out.println(fileBuffer);
+        FileUtils.writeToTextFile(getClass(), "Output.txt", fileBuffer);
+        System.out.println("Quantity of binary array: " + fileBuffer.split(System.lineSeparator()).length);
     }
 
     public void getArray2(String s) {
         for (int i = 0; i < data.length; i++) {
-            s += data[i];
-            if (s.length() == number) {
-                System.out.println("r: " + s);
-                return;
+            if ((s + data[i]).length() == number) {
+//                System.out.println("r: " + (s + data[i]));
+                fileBuffer += (s + data[i] + System.lineSeparator());
+            } else {
+                getArray2((s + data[i]));
             }
-            getArray2(s);
         }
     }
 
