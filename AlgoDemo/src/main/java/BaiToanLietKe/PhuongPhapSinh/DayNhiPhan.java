@@ -58,7 +58,7 @@ public class DayNhiPhan {
 
             if ((quantity > 1) && (previousArray == null)) {
                 System.out.println(fileBuffer);
-                FileUtils.writeToTextFile(getClass(), "GenerationOutput.txt", fileBuffer);
+                FileUtils.writeToTextFile(getClass(), "Output.txt", fileBuffer);
                 System.out.println("Quantity of binary array: " + quantity);
             }
         } while (previousArray != null);

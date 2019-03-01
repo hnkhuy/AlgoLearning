@@ -9,8 +9,8 @@ import java.net.URISyntaxException;
 public class PhuongPhapSinhMain {
     public static void main(String[] args) throws IOException, URISyntaxException {
         //        System.out.println("result = ");
-//        DayNhiPhan dayNhiPhan = new DayNhiPhan();
-//        dayNhiPhan.binaryArray();
+        DayNhiPhan dayNhiPhan = new DayNhiPhan();
+        dayNhiPhan.binaryArray();
 
 //        TapConKPhanTu listed = new TapConKPhanTu();
 //        listed.listedArray();
@@ -21,7 +21,7 @@ public class PhuongPhapSinhMain {
 //        Exercise03 exercise03 = new Exercise03();
 //        exercise03.exercise03Array();
 
-        Exercise04 exercise04 = new Exercise04();
-        exercise04.executeAlgorithm();
+//        Exercise04 exercise04 = new Exercise04();
+//        exercise04.executeAlgorithm();
     }
 }
