@@ -15,7 +15,7 @@ public class FileUtils {
         String content = null;
         try {
             content = new String(Files.readAllBytes(
-                    Paths.get(classLoader.getResource(classLoader.getSimpleName() + "\\" + fileName).toURI()).toFile()
+                    Paths.get(classLoader.getResource(classLoader.getSimpleName() + "/" + fileName).toURI()).toFile()
                             .toPath()));
         } catch (IOException | URISyntaxException e) {
             e.printStackTrace();
@@ -25,7 +25,7 @@ public class FileUtils {
 
     public static void writeToTextFile(Class classLoader, String fileName, String content) {
         try {
-            Files.write(Paths.get(classLoader.getResource(classLoader.getSimpleName() + "\\" + fileName).toURI()).toFile().toPath(), content.getBytes(),
+            Files.write(Paths.get(classLoader.getResource(classLoader.getSimpleName() + "/" + fileName).toURI()).toFile().toPath(), content.getBytes(),
                     StandardOpenOption.CREATE);
         } catch (IOException | URISyntaxException e) {
             e.printStackTrace();
